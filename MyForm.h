@@ -1,7 +1,10 @@
 #pragma once
+#include <iostream>
+
 
 namespace test {
 
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -12,6 +15,14 @@ namespace test {
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
+	class foo {
+	public:
+		void ydachno() {
+			setlocale(0, "Rus");
+			cout << "Hello World";
+		};
+
+	};
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -77,7 +88,7 @@ namespace test {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		foo();
 	}
 	};
 }
