@@ -2,11 +2,12 @@
 
 using namespace std;
 
-int main() {
 
-	setlocale(0, "Rus");
+class foo {
+public:
+	void ydachno() {
+		setlocale(0, "Rus");
+		cout << "Hello World";
+	};
 
-	cout << "Удачно!";
-
-	return 0;
-}
+};
