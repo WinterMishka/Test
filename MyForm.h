@@ -39,8 +39,6 @@ namespace test {
 			}
 		}
 	protected:
-	System::Drawing::Image^ pole;
-	System::Drawing::Image^ krest;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
@@ -50,6 +48,8 @@ namespace test {
 	private: System::Windows::Forms::Button^ button7;
 	private: System::Windows::Forms::Button^ button8;
 	private: System::Windows::Forms::Button^ button9;
+	private: System::Drawing::Image^ pole;
+	private: System::Drawing::Image^ krest;
 
 
 	private:
@@ -75,8 +75,8 @@ namespace test {
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->pole = (gcnew System::Drawing::Bitmap(L"pole.png"));
-			this->krest = (gcnew System::Drawing::Bitmap(L"krest.png"));
+			this->pole = gcnew System::Drawing::Bitmap(L"pole.png");
+			this->krest = gcnew System::Drawing::Bitmap(L"krest.png");
 			this->SuspendLayout();
 			// 
 			// button1
