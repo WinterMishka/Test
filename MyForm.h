@@ -1,18 +1,4 @@
 #pragma once
-#include <vector>
-#include <algorithm>
-#include <random>
-#include <ctime>
-#include <cstdlib>
-
-std::vector<int> generate_numbers() {
-	std::vector<int> numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // создаем вектор из всех чисел от 1 до 9
-	srand(time(NULL)); // устанавливаем seed для rand()
-	std::random_device rd; // источник случайных чисел
-	std::mt19937 g(rd()); // генератор случайных чисел
-	std::shuffle(numbers.begin(), numbers.end(), g); // перемешиваем вектор
-	return numbers; // возвращаем вектор
-}
 
 namespace test {
 
@@ -243,58 +229,31 @@ namespace test {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 	private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<int> numbers = generate_numbers();
-		if (numbers[1] == 1 || numbers[1] == 2) {
-			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
+		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 };
 }
