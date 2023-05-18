@@ -1,7 +1,17 @@
 #pragma once
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <ctime>
+#include <cstdlib>
 
-void mini() {
-
+std::vector<int> generate_numbers() {
+	std::vector<int> numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // создаем вектор из всех чисел от 1 до 9
+	srand(time(NULL)); // устанавливаем seed для rand()
+	std::random_device rd; // источник случайных чисел
+	std::mt19937 g(rd()); // генератор случайных чисел
+	std::shuffle(numbers.begin(), numbers.end(), g); // перемешиваем вектор
+	return numbers; // возвращаем вектор
 }
 
 namespace test {
@@ -38,19 +48,16 @@ namespace test {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox6;
+	private: System::Windows::Forms::PictureBox^ pictureBox7;
+	private: System::Windows::Forms::PictureBox^ pictureBox8;
+	private: System::Windows::Forms::PictureBox^ pictureBox9;
 	protected:
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button6;
-	private: System::Windows::Forms::Button^ button7;
-	private: System::Windows::Forms::Button^ button8;
-	private: System::Windows::Forms::Button^ button9;
-	private: System::Drawing::Image^ pole;
-	private: System::Drawing::Image^ krest;
-
 
 	private:
 		/// <summary>
@@ -66,166 +73,228 @@ namespace test {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->pole = gcnew System::Drawing::Bitmap(L"pole.png");
-			this->krest = gcnew System::Drawing::Bitmap(L"krest.png");
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// button1
+			// pictureBox1
 			// 
-			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(168, 183);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox1->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.ErrorImage")));
+			this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
+			this->pictureBox1->Location = System::Drawing::Point(192, 176);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(50, 50);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 			// 
-			// button2
+			// pictureBox2
 			// 
-			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
-			this->button2->Location = System::Drawing::Point(239, 183);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
-			this->button2->TabIndex = 1;
-			this->button2->Text = L"button2";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			this->pictureBox2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox2->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.ErrorImage")));
+			this->pictureBox2->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.InitialImage")));
+			this->pictureBox2->Location = System::Drawing::Point(248, 176);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(50, 50);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 1;
+			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &MyForm::pictureBox2_Click);
 			// 
-			// button3
+			// pictureBox3
 			// 
-			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
-			this->button3->Location = System::Drawing::Point(312, 183);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
-			this->button3->TabIndex = 2;
-			this->button3->Text = L"button3";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+			this->pictureBox3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox3->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.ErrorImage")));
+			this->pictureBox3->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.InitialImage")));
+			this->pictureBox3->Location = System::Drawing::Point(304, 176);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(50, 50);
+			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox3->TabIndex = 2;
+			this->pictureBox3->TabStop = false;
+			this->pictureBox3->Click += gcnew System::EventHandler(this, &MyForm::pictureBox3_Click);
 			// 
-			// button4
+			// pictureBox4
 			// 
-			this->button4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
-			this->button4->Location = System::Drawing::Point(168, 212);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
-			this->button4->TabIndex = 3;
-			this->button4->Text = L"button4";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			this->pictureBox4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox4->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.ErrorImage")));
+			this->pictureBox4->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.InitialImage")));
+			this->pictureBox4->Location = System::Drawing::Point(192, 232);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(50, 50);
+			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox4->TabIndex = 3;
+			this->pictureBox4->TabStop = false;
+			this->pictureBox4->Click += gcnew System::EventHandler(this, &MyForm::pictureBox4_Click);
 			// 
-			// button5
+			// pictureBox5
 			// 
-			this->button5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
-			this->button5->Location = System::Drawing::Point(239, 212);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(75, 23);
-			this->button5->TabIndex = 4;
-			this->button5->Text = L"button5";
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			this->pictureBox5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox5->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.ErrorImage")));
+			this->pictureBox5->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.InitialImage")));
+			this->pictureBox5->Location = System::Drawing::Point(248, 232);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(50, 50);
+			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox5->TabIndex = 4;
+			this->pictureBox5->TabStop = false;
+			this->pictureBox5->Click += gcnew System::EventHandler(this, &MyForm::pictureBox5_Click);
 			// 
-			// button6
+			// pictureBox6
 			// 
-			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.Image")));
-			this->button6->Location = System::Drawing::Point(312, 212);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(75, 23);
-			this->button6->TabIndex = 5;
-			this->button6->Text = L"button6";
-			this->button6->UseVisualStyleBackColor = true;
-			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			this->pictureBox6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox6->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.ErrorImage")));
+			this->pictureBox6->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.InitialImage")));
+			this->pictureBox6->Location = System::Drawing::Point(304, 232);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(50, 50);
+			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox6->TabIndex = 5;
+			this->pictureBox6->TabStop = false;
+			this->pictureBox6->Click += gcnew System::EventHandler(this, &MyForm::pictureBox6_Click);
 			// 
-			// button7
+			// pictureBox7
 			// 
-			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.Image")));
-			this->button7->Location = System::Drawing::Point(168, 241);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(75, 23);
-			this->button7->TabIndex = 6;
-			this->button7->Text = L"button7";
-			this->button7->UseVisualStyleBackColor = true;
-			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
+			this->pictureBox7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox7->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.ErrorImage")));
+			this->pictureBox7->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.InitialImage")));
+			this->pictureBox7->Location = System::Drawing::Point(192, 288);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(50, 50);
+			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox7->TabIndex = 6;
+			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &MyForm::pictureBox7_Click);
 			// 
-			// button8
+			// pictureBox8
 			// 
-			this->button8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button8.Image")));
-			this->button8->Location = System::Drawing::Point(239, 241);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(75, 23);
-			this->button8->TabIndex = 7;
-			this->button8->Text = L"button8";
-			this->button8->UseVisualStyleBackColor = true;
-			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
+			this->pictureBox8->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox8->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.ErrorImage")));
+			this->pictureBox8->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.InitialImage")));
+			this->pictureBox8->Location = System::Drawing::Point(248, 288);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(50, 50);
+			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox8->TabIndex = 7;
+			this->pictureBox8->TabStop = false;
+			this->pictureBox8->Click += gcnew System::EventHandler(this, &MyForm::pictureBox8_Click);
 			// 
-			// button9
+			// pictureBox9
 			// 
-			this->button9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
-			this->button9->Location = System::Drawing::Point(312, 241);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(75, 23);
-			this->button9->TabIndex = 8;
-			this->button9->Text = L"button9";
-			this->button9->UseVisualStyleBackColor = true;
-			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
+			this->pictureBox9->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->pictureBox9->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.ErrorImage")));
+			this->pictureBox9->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.InitialImage")));
+			this->pictureBox9->Location = System::Drawing::Point(304, 288);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(50, 50);
+			this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox9->TabIndex = 8;
+			this->pictureBox9->TabStop = false;
+			this->pictureBox9->Click += gcnew System::EventHandler(this, &MyForm::pictureBox9_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(574, 448);
-			this->Controls->Add(this->button9);
-			this->Controls->Add(this->button8);
-			this->Controls->Add(this->button7);
-			this->Controls->Add(this->button6);
-			this->Controls->Add(this->button5);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->ClientSize = System::Drawing::Size(568, 540);
+			this->Controls->Add(this->pictureBox9);
+			this->Controls->Add(this->pictureBox8);
+			this->Controls->Add(this->pictureBox7);
+			this->Controls->Add(this->pictureBox6);
+			this->Controls->Add(this->pictureBox5);
+			this->Controls->Add(this->pictureBox4);
+			this->Controls->Add(this->pictureBox3);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		button1->Image = krest;
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
-	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
+	}
+	private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<int> numbers = generate_numbers();
+		if (numbers[1] == 1 || numbers[1] == 2) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
+	}
 };
 }
