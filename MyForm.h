@@ -1,4 +1,13 @@
 #pragma once
+#include <random>
+
+void krestiki(int^ a) {
+	int i = rand() % 6;
+	int j = rand() % 6;
+	if (i == j) {
+		a = 1;
+	}
+}
 
 namespace test {
 
@@ -229,31 +238,54 @@ namespace test {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		krestiki(a);
+		if (a == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 	private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
-		pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 	}
 };
 }
