@@ -1,11 +1,19 @@
 #pragma once
 #include <random>
+#include <vector>
 
-void krestiki(int^ a) {
-	int i = rand() % 6;
-	int j = rand() % 6;
-	if (i == j) {
-		a = 1;
+
+void generate_random_numbers(int min, int max, int array[9]) {
+	// Создаем вектор из всех возможных чисел в диапазоне
+	std::vector<int> numbers;
+	for (int i = min; i <= max; i++) {
+		numbers.push_back(i);
+	}
+	// Перемешиваем вектор случайным образом
+	std::random_shuffle(numbers.begin(), numbers.end());
+	// Копируем первые 9 элементов вектора в массив
+	for (int i = 0; i < 9; i++) {
+		array[i] = numbers[i];
 	}
 }
 
@@ -238,54 +246,56 @@ namespace test {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
-		}
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
 	}
 	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
 	}
 	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
 	}
 	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
 	}
 	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
 	}
 	private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
-		krestiki(a);
-		if (a == 1) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
 			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 		}
 	}
 	private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
+		generate_random_numbers(1, 9, array);
+		if (array[0] == 1) {
+			pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
+		}
 	}
 };
 }
