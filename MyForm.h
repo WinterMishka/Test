@@ -1,9 +1,38 @@
 #pragma once
 
-int summachisel;
-int chislo1, chislo2, chislo4, chislo8, chislo16, chislo32, chislo64, chislo128;
+int summa(int number) {
+	int sum = 0;
+	switch (number) {
+	case 1:
+		sum += 1;
+		break;
+	case 2:
+		sum += 2;
+		break;
+	case 4:
+		sum += 4;
+		break;
+	case 8:
+		sum += 8;
+		break;
+	case 16:
+		sum += 16;
+		break;
+	case 32:
+		sum += 32;
+		break;
+	case 64:
+		sum += 64;
+		break;
+	case 128:
+		sum += 128;
+		break;
+	}
+	return sum;
+}
 
 namespace Petrushka {
+
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -194,37 +223,35 @@ namespace Petrushka {
 
 		}
 #pragma endregion
-
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 1;
-		label1->Text = summachisel->ToString();
-
+		label1->Text = summa(1) ->ToString();
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 2;
+		label1->Text = summa(2)->ToString();
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 4;
+		label1->Text = summa(4)->ToString();
 	}
 	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 8;
+		label1->Text = summa(8)->ToString();
 	}
 	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 16;
+		label1->Text = summa(16)->ToString();
 	}
 	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 32;
+		label1->Text = summa(32)->ToString();
 	}
 	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 64;
+		label1->Text = summa(64)->ToString();
 	}
 	private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
-		summachisel += 128;
+		label1->Text = summa(128)->ToString();
 	}
 };
 }
