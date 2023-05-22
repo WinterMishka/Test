@@ -23,6 +23,7 @@ namespace Kursach {
 	public ref class GasStation : public System::Windows::Forms::Form
 	{
 	public:
+		Administrator^ f1;
 		GasStation(void)
 		{
 			InitializeComponent();
