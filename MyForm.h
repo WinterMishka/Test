@@ -1,7 +1,8 @@
 #pragma once
 #include <random>
+#include <WinUser.h>
 
-int a, click;
+int a, click, num;
 
 int generate_and_clear() {
 	// Создаем статическую переменную, которая хранит последнее сгенерированное число
@@ -16,6 +17,86 @@ int generate_and_clear() {
 	else {
 		last_number = rand() % 5 + 1;
 		return last_number;
+	}
+}
+void update_score(int a) {
+	// Перенести код из сообщения в тело функции
+	if (radioButton1->Checked) {
+		if (a == 1 || a == 2 || a == 3) {
+			click++;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		if (a == 4 || a == 5 || a == 6) {
+			click = click + 2;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		if (a == 7 || a == 8 || a == 9) {
+			click = click + 3;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		else {
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("krest.jpg");
+			// Использовать квалифицированное имя для MB_OK и MB_ICONERROR
+			MessageBox(NULL, "Вы проиграли", "Game Over", MB_OK | MB_ICONERROR);
+		}
+	}
+
+	if (radioButton2->Checked) {
+		if (a == 1 || a == 2) {
+			click++;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		if (a == 3 || a == 4) {
+			click = click + 2;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		if (a == 4 || a == 5) {
+			click = click + 3;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		else {
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("krest.jpg");
+			// Использовать квалифицированное имя для MB_OK и MB_ICONERROR
+			MessageBox(NULL, "Вы проиграли", "Game Over", MB_OK | MB_ICONERROR);
+		}
+	}
+
+	if (radioButton3->Checked) {
+		if (a == 1) {
+			click++;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		if (a == 2) {
+			click = click + 2;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		if (a == 3) {
+			click = click + 3;
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		else {
+			pictureBox[a]->Image = System::Drawing::Image::FromFile("krest.jpg");
+			// Использовать квалифицированное имя для MB_OK и MB_ICONERROR
+			MessageBox(NULL, "Вы проиграли", "Game Over", MB_OK | MB_ICONERROR);
+		}
 	}
 }
 
@@ -706,6 +787,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox30->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox30->TabIndex = 30;
 			this->pictureBox30->TabStop = false;
+			this->pictureBox30->Click += gcnew System::EventHandler(this, &MyForm::pictureBox30_Click);
 			// 
 			// pictureBox31
 			// 
@@ -718,6 +800,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox31->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox31->TabIndex = 31;
 			this->pictureBox31->TabStop = false;
+			this->pictureBox31->Click += gcnew System::EventHandler(this, &MyForm::pictureBox31_Click);
 			// 
 			// pictureBox32
 			// 
@@ -730,6 +813,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox32->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox32->TabIndex = 32;
 			this->pictureBox32->TabStop = false;
+			this->pictureBox32->Click += gcnew System::EventHandler(this, &MyForm::pictureBox32_Click);
 			// 
 			// pictureBox33
 			// 
@@ -742,6 +826,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox33->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox33->TabIndex = 33;
 			this->pictureBox33->TabStop = false;
+			this->pictureBox33->Click += gcnew System::EventHandler(this, &MyForm::pictureBox33_Click);
 			// 
 			// pictureBox34
 			// 
@@ -754,6 +839,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox34->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox34->TabIndex = 34;
 			this->pictureBox34->TabStop = false;
+			this->pictureBox34->Click += gcnew System::EventHandler(this, &MyForm::pictureBox34_Click);
 			// 
 			// pictureBox35
 			// 
@@ -766,6 +852,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox35->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox35->TabIndex = 35;
 			this->pictureBox35->TabStop = false;
+			this->pictureBox35->Click += gcnew System::EventHandler(this, &MyForm::pictureBox35_Click);
 			// 
 			// pictureBox36
 			// 
@@ -778,6 +865,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox36->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox36->TabIndex = 36;
 			this->pictureBox36->TabStop = false;
+			this->pictureBox36->Click += gcnew System::EventHandler(this, &MyForm::pictureBox36_Click);
 			// 
 			// pictureBox37
 			// 
@@ -790,6 +878,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox37->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox37->TabIndex = 37;
 			this->pictureBox37->TabStop = false;
+			this->pictureBox37->Click += gcnew System::EventHandler(this, &MyForm::pictureBox37_Click);
 			// 
 			// pictureBox38
 			// 
@@ -802,6 +891,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox38->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox38->TabIndex = 38;
 			this->pictureBox38->TabStop = false;
+			this->pictureBox38->Click += gcnew System::EventHandler(this, &MyForm::pictureBox38_Click);
 			// 
 			// pictureBox39
 			// 
@@ -814,6 +904,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox39->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox39->TabIndex = 39;
 			this->pictureBox39->TabStop = false;
+			this->pictureBox39->Click += gcnew System::EventHandler(this, &MyForm::pictureBox39_Click);
 			// 
 			// pictureBox40
 			// 
@@ -826,6 +917,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox40->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox40->TabIndex = 40;
 			this->pictureBox40->TabStop = false;
+			this->pictureBox40->Click += gcnew System::EventHandler(this, &MyForm::pictureBox40_Click);
 			// 
 			// pictureBox41
 			// 
@@ -838,6 +930,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox41->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox41->TabIndex = 41;
 			this->pictureBox41->TabStop = false;
+			this->pictureBox41->Click += gcnew System::EventHandler(this, &MyForm::pictureBox41_Click);
 			// 
 			// pictureBox42
 			// 
@@ -850,6 +943,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox42->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox42->TabIndex = 42;
 			this->pictureBox42->TabStop = false;
+			this->pictureBox42->Click += gcnew System::EventHandler(this, &MyForm::pictureBox42_Click);
 			// 
 			// pictureBox43
 			// 
@@ -862,6 +956,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox43->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox43->TabIndex = 43;
 			this->pictureBox43->TabStop = false;
+			this->pictureBox43->Click += gcnew System::EventHandler(this, &MyForm::pictureBox43_Click);
 			// 
 			// pictureBox44
 			// 
@@ -874,6 +969,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox44->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox44->TabIndex = 44;
 			this->pictureBox44->TabStop = false;
+			this->pictureBox44->Click += gcnew System::EventHandler(this, &MyForm::pictureBox44_Click);
 			// 
 			// pictureBox45
 			// 
@@ -886,6 +982,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox45->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox45->TabIndex = 45;
 			this->pictureBox45->TabStop = false;
+			this->pictureBox45->Click += gcnew System::EventHandler(this, &MyForm::pictureBox45_Click);
 			// 
 			// pictureBox46
 			// 
@@ -898,6 +995,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox46->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox46->TabIndex = 46;
 			this->pictureBox46->TabStop = false;
+			this->pictureBox46->Click += gcnew System::EventHandler(this, &MyForm::pictureBox46_Click);
 			// 
 			// pictureBox47
 			// 
@@ -910,6 +1008,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox47->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox47->TabIndex = 47;
 			this->pictureBox47->TabStop = false;
+			this->pictureBox47->Click += gcnew System::EventHandler(this, &MyForm::pictureBox47_Click);
 			// 
 			// pictureBox48
 			// 
@@ -922,6 +1021,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox48->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox48->TabIndex = 48;
 			this->pictureBox48->TabStop = false;
+			this->pictureBox48->Click += gcnew System::EventHandler(this, &MyForm::pictureBox48_Click);
 			// 
 			// pictureBox49
 			// 
@@ -934,6 +1034,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox49->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox49->TabIndex = 49;
 			this->pictureBox49->TabStop = false;
+			this->pictureBox49->Click += gcnew System::EventHandler(this, &MyForm::pictureBox49_Click);
 			// 
 			// pictureBox50
 			// 
@@ -946,6 +1047,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox50->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox50->TabIndex = 50;
 			this->pictureBox50->TabStop = false;
+			this->pictureBox50->Click += gcnew System::EventHandler(this, &MyForm::pictureBox50_Click);
 			// 
 			// pictureBox51
 			// 
@@ -958,6 +1060,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox51->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox51->TabIndex = 51;
 			this->pictureBox51->TabStop = false;
+			this->pictureBox51->Click += gcnew System::EventHandler(this, &MyForm::pictureBox51_Click);
 			// 
 			// pictureBox52
 			// 
@@ -970,6 +1073,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox52->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox52->TabIndex = 52;
 			this->pictureBox52->TabStop = false;
+			this->pictureBox52->Click += gcnew System::EventHandler(this, &MyForm::pictureBox52_Click);
 			// 
 			// pictureBox53
 			// 
@@ -982,6 +1086,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox53->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox53->TabIndex = 53;
 			this->pictureBox53->TabStop = false;
+			this->pictureBox53->Click += gcnew System::EventHandler(this, &MyForm::pictureBox53_Click);
 			// 
 			// pictureBox54
 			// 
@@ -994,6 +1099,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox54->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox54->TabIndex = 54;
 			this->pictureBox54->TabStop = false;
+			this->pictureBox54->Click += gcnew System::EventHandler(this, &MyForm::pictureBox54_Click);
 			// 
 			// pictureBox55
 			// 
@@ -1006,6 +1112,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox55->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox55->TabIndex = 55;
 			this->pictureBox55->TabStop = false;
+			this->pictureBox55->Click += gcnew System::EventHandler(this, &MyForm::pictureBox55_Click);
 			// 
 			// pictureBox56
 			// 
@@ -1018,6 +1125,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox56->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox56->TabIndex = 56;
 			this->pictureBox56->TabStop = false;
+			this->pictureBox56->Click += gcnew System::EventHandler(this, &MyForm::pictureBox56_Click);
 			// 
 			// pictureBox57
 			// 
@@ -1030,6 +1138,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox57->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox57->TabIndex = 57;
 			this->pictureBox57->TabStop = false;
+			this->pictureBox57->Click += gcnew System::EventHandler(this, &MyForm::pictureBox57_Click);
 			// 
 			// pictureBox58
 			// 
@@ -1042,6 +1151,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox58->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox58->TabIndex = 58;
 			this->pictureBox58->TabStop = false;
+			this->pictureBox58->Click += gcnew System::EventHandler(this, &MyForm::pictureBox58_Click);
 			// 
 			// pictureBox59
 			// 
@@ -1054,6 +1164,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox59->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox59->TabIndex = 59;
 			this->pictureBox59->TabStop = false;
+			this->pictureBox59->Click += gcnew System::EventHandler(this, &MyForm::pictureBox59_Click);
 			// 
 			// pictureBox60
 			// 
@@ -1066,6 +1177,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox60->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox60->TabIndex = 60;
 			this->pictureBox60->TabStop = false;
+			this->pictureBox60->Click += gcnew System::EventHandler(this, &MyForm::pictureBox60_Click);
 			// 
 			// pictureBox61
 			// 
@@ -1078,6 +1190,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox61->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox61->TabIndex = 61;
 			this->pictureBox61->TabStop = false;
+			this->pictureBox61->Click += gcnew System::EventHandler(this, &MyForm::pictureBox61_Click);
 			// 
 			// pictureBox62
 			// 
@@ -1090,6 +1203,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox62->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox62->TabIndex = 62;
 			this->pictureBox62->TabStop = false;
+			this->pictureBox62->Click += gcnew System::EventHandler(this, &MyForm::pictureBox62_Click);
 			// 
 			// pictureBox63
 			// 
@@ -1102,6 +1216,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox63->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox63->TabIndex = 63;
 			this->pictureBox63->TabStop = false;
+			this->pictureBox63->Click += gcnew System::EventHandler(this, &MyForm::pictureBox63_Click);
 			// 
 			// pictureBox64
 			// 
@@ -1114,6 +1229,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox64->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox64->TabIndex = 64;
 			this->pictureBox64->TabStop = false;
+			this->pictureBox64->Click += gcnew System::EventHandler(this, &MyForm::pictureBox64_Click);
 			// 
 			// pictureBox65
 			// 
@@ -1126,6 +1242,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox65->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox65->TabIndex = 65;
 			this->pictureBox65->TabStop = false;
+			this->pictureBox65->Click += gcnew System::EventHandler(this, &MyForm::pictureBox65_Click);
 			// 
 			// pictureBox66
 			// 
@@ -1138,6 +1255,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox66->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox66->TabIndex = 66;
 			this->pictureBox66->TabStop = false;
+			this->pictureBox66->Click += gcnew System::EventHandler(this, &MyForm::pictureBox66_Click);
 			// 
 			// pictureBox67
 			// 
@@ -1150,6 +1268,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox67->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox67->TabIndex = 67;
 			this->pictureBox67->TabStop = false;
+			this->pictureBox67->Click += gcnew System::EventHandler(this, &MyForm::pictureBox67_Click);
 			// 
 			// pictureBox68
 			// 
@@ -1162,6 +1281,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox68->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox68->TabIndex = 68;
 			this->pictureBox68->TabStop = false;
+			this->pictureBox68->Click += gcnew System::EventHandler(this, &MyForm::pictureBox68_Click);
 			// 
 			// pictureBox69
 			// 
@@ -1174,6 +1294,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox69->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox69->TabIndex = 69;
 			this->pictureBox69->TabStop = false;
+			this->pictureBox69->Click += gcnew System::EventHandler(this, &MyForm::pictureBox69_Click);
 			// 
 			// pictureBox70
 			// 
@@ -1186,6 +1307,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox70->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox70->TabIndex = 70;
 			this->pictureBox70->TabStop = false;
+			this->pictureBox70->Click += gcnew System::EventHandler(this, &MyForm::pictureBox70_Click);
 			// 
 			// pictureBox71
 			// 
@@ -1198,6 +1320,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox71->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox71->TabIndex = 71;
 			this->pictureBox71->TabStop = false;
+			this->pictureBox71->Click += gcnew System::EventHandler(this, &MyForm::pictureBox71_Click);
 			// 
 			// pictureBox72
 			// 
@@ -1210,6 +1333,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox72->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox72->TabIndex = 72;
 			this->pictureBox72->TabStop = false;
+			this->pictureBox72->Click += gcnew System::EventHandler(this, &MyForm::pictureBox72_Click);
 			// 
 			// pictureBox73
 			// 
@@ -1222,6 +1346,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox73->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox73->TabIndex = 73;
 			this->pictureBox73->TabStop = false;
+			this->pictureBox73->Click += gcnew System::EventHandler(this, &MyForm::pictureBox73_Click);
 			// 
 			// pictureBox74
 			// 
@@ -1234,6 +1359,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox74->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox74->TabIndex = 74;
 			this->pictureBox74->TabStop = false;
+			this->pictureBox74->Click += gcnew System::EventHandler(this, &MyForm::pictureBox74_Click);
 			// 
 			// pictureBox75
 			// 
@@ -1246,6 +1372,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox75->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox75->TabIndex = 75;
 			this->pictureBox75->TabStop = false;
+			this->pictureBox75->Click += gcnew System::EventHandler(this, &MyForm::pictureBox75_Click);
 			// 
 			// pictureBox76
 			// 
@@ -1258,6 +1385,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox76->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox76->TabIndex = 76;
 			this->pictureBox76->TabStop = false;
+			this->pictureBox76->Click += gcnew System::EventHandler(this, &MyForm::pictureBox76_Click);
 			// 
 			// pictureBox77
 			// 
@@ -1270,6 +1398,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox77->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox77->TabIndex = 77;
 			this->pictureBox77->TabStop = false;
+			this->pictureBox77->Click += gcnew System::EventHandler(this, &MyForm::pictureBox77_Click);
 			// 
 			// pictureBox78
 			// 
@@ -1282,6 +1411,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox78->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox78->TabIndex = 78;
 			this->pictureBox78->TabStop = false;
+			this->pictureBox78->Click += gcnew System::EventHandler(this, &MyForm::pictureBox78_Click);
 			// 
 			// pictureBox79
 			// 
@@ -1294,6 +1424,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox79->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox79->TabIndex = 79;
 			this->pictureBox79->TabStop = false;
+			this->pictureBox79->Click += gcnew System::EventHandler(this, &MyForm::pictureBox79_Click);
 			// 
 			// pictureBox80
 			// 
@@ -1306,6 +1437,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox80->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox80->TabIndex = 80;
 			this->pictureBox80->TabStop = false;
+			this->pictureBox80->Click += gcnew System::EventHandler(this, &MyForm::pictureBox80_Click);
 			// 
 			// pictureBox81
 			// 
@@ -1318,6 +1450,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->pictureBox81->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox81->TabIndex = 81;
 			this->pictureBox81->TabStop = false;
+			this->pictureBox81->Click += gcnew System::EventHandler(this, &MyForm::pictureBox81_Click);
 			// 
 			// radioButton1
 			// 
@@ -1538,7 +1671,8 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 		a = generate_and_clear();
 		//
@@ -1566,7 +1700,6 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			else {
 				pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 				MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
-
 			}
 		}
 		//
@@ -1594,7 +1727,6 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			else {
 				pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 				MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
-
 			}
 		}
 		//
@@ -1622,10 +1754,170 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			else {
 				pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 				MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
-
 			}
 		}
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
+		a = generate_and_clear();
+		update_score(a);
+	}
+	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox10_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox11_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox12_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox13_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox14_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox15_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox16_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox17_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox18_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox19_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox20_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox21_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox22_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox23_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox24_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox25_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox26_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox27_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox28_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox29_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox30_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox31_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox32_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox33_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox34_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox35_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox36_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox37_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox38_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox39_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox40_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox41_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox42_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox43_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox44_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox45_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox46_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox47_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox48_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox49_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox50_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox51_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox52_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox53_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox54_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox55_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox56_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox57_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox58_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox59_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox60_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox61_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox62_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox63_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox64_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox65_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox66_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox67_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox68_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox69_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox70_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox71_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox72_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox73_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox74_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox75_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox76_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox77_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox78_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox79_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox80_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox81_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 };
 }
