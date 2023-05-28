@@ -1775,7 +1775,7 @@ namespace test {
 		}
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		funk();
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
