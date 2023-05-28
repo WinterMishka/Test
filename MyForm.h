@@ -19,7 +19,7 @@ int generate_and_clear() {
 	}
 }
 
-void funk(System::Object^ sender, System::EventArgs^ e, RadioButton^ radioButton1, RadioButton^ radioButton2, RadioButton^ radioButton3, Label^ label1) {
+void funk(System::Object^ sender, System::EventArgs^ e, System::Windows::Forms::RadioButton^ radioButton1, System::Windows::Forms::RadioButton^ radioButton2, System::Windows::Forms::RadioButton^ radioButton3, System::Windows::Forms::Label^ label1) {
 	int a = generate_and_clear(); // Получаем случайное число
 	int click = 0; // Объявляем переменную для подсчета очков
 	// Получаем указатель на pictureBox, по которому кликнули
@@ -1776,6 +1776,7 @@ namespace test {
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 		funk(sender, e, radioButton1, radioButton2, radioButton3, label1);
+
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
