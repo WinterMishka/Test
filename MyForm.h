@@ -1,8 +1,7 @@
 #pragma once
 #include <random>
-#include <WinUser.h>
 
-int a, click, num;
+int a, click;
 
 int generate_and_clear() {
 	// Создаем статическую переменную, которая хранит последнее сгенерированное число
@@ -13,92 +12,13 @@ int generate_and_clear() {
 		last_number = 0;
 		return 0;
 	}
-	// Иначе генерируем новое случайное число от 1 до 3 и сохраняем его в переменной
+	// Иначе генерируем новое случайное число от 1 до 10 и сохраняем его в переменной
 	else {
-		last_number = rand() % 5 + 1;
+		last_number = rand() % 10 + 1;
 		return last_number;
 	}
 }
-void update_score(int a) {
-	// Перенести код из сообщения в тело функции
-	if (radioButton1->Checked) {
-		if (a == 1 || a == 2 || a == 3) {
-			click++;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		if (a == 4 || a == 5 || a == 6) {
-			click = click + 2;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		if (a == 7 || a == 8 || a == 9) {
-			click = click + 3;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		else {
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("krest.jpg");
-			// Использовать квалифицированное имя для MB_OK и MB_ICONERROR
-			MessageBox(NULL, "Вы проиграли", "Game Over", MB_OK | MB_ICONERROR);
-		}
-	}
 
-	if (radioButton2->Checked) {
-		if (a == 1 || a == 2) {
-			click++;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		if (a == 3 || a == 4) {
-			click = click + 2;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		if (a == 4 || a == 5) {
-			click = click + 3;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		else {
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("krest.jpg");
-			// Использовать квалифицированное имя для MB_OK и MB_ICONERROR
-			MessageBox(NULL, "Вы проиграли", "Game Over", MB_OK | MB_ICONERROR);
-		}
-	}
-
-	if (radioButton3->Checked) {
-		if (a == 1) {
-			click++;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		if (a == 2) {
-			click = click + 2;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		if (a == 3) {
-			click = click + 3;
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("1.jpg");
-			label1->Text = ("Счёт: " + click)->ToString();
-			label1->Refresh();
-		}
-		else {
-			pictureBox[a]->Image = System::Drawing::Image::FromFile("krest.jpg");
-			// Использовать квалифицированное имя для MB_OK и MB_ICONERROR
-			MessageBox(NULL, "Вы проиграли", "Game Over", MB_OK | MB_ICONERROR);
-		}
-	}
-}
 
 namespace test {
 	using namespace System;
@@ -107,7 +27,6 @@ namespace test {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
@@ -218,6 +137,7 @@ namespace test {
 private: System::Windows::Forms::RadioButton^ radioButton1;
 private: System::Windows::Forms::RadioButton^ radioButton2;
 private: System::Windows::Forms::RadioButton^ radioButton3;
+private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -325,6 +245,7 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -1490,11 +1411,22 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			this->radioButton3->Text = L"Сложная";
 			this->radioButton3->UseVisualStyleBackColor = false;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(678, 51);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 85;
+			this->button1->Text = L"Обновить";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1013, 571);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->radioButton2);
 			this->Controls->Add(this->radioButton1);
@@ -1669,6 +1601,12 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 
 		}
 #pragma endregion
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		click = 0;
+		label1->Text = ("Счёт: " + click)->ToString();
+		label1->Refresh();
+		pictureBox1->Image = System::Drawing::Image::FromFile("fon.jpg");
+	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1685,19 +1623,19 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			if (a == 4 || a == 5 || a == 6) {
+			else if (a == 4 || a == 5 || a == 6) {
 				click = click + 2;
-				pictureBox1->Image = System::Drawing::Image::FromFile("1.jpg");
+				pictureBox1->Image = System::Drawing::Image::FromFile("2.jpg");
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			if (a == 7 || a == 8 || a == 9) {
+			else if (a == 7 || a == 8 || a == 9) {
 				click = click + 3;
-				pictureBox1->Image = System::Drawing::Image::FromFile("1.jpg");
+				pictureBox1->Image = System::Drawing::Image::FromFile("3.jpg");
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			else {
+			else if (a == 10) {
 				pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 				MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
@@ -1712,19 +1650,19 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			if (a == 3 || a == 4) {
+			else if (a == 3 || a == 4) {
 				click = click + 2;
-				pictureBox1->Image = System::Drawing::Image::FromFile("1.jpg");
+				pictureBox1->Image = System::Drawing::Image::FromFile("2.jpg");
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			if (a == 4 || a == 5) {
+			else if (a == 4 || a == 5) {
 				click = click + 3;
-				pictureBox1->Image = System::Drawing::Image::FromFile("1.jpg");
+				pictureBox1->Image = System::Drawing::Image::FromFile("3.jpg");
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			else {
+			else if ( a == 6 || a == 7 || a == 8 || a == 9 || a == 10) {
 				pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 				MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
@@ -1741,25 +1679,23 @@ private: System::Windows::Forms::RadioButton^ radioButton3;
 			}
 			if (a == 2) {
 				click = click + 2;
-				pictureBox1->Image = System::Drawing::Image::FromFile("1.jpg");
+				pictureBox1->Image = System::Drawing::Image::FromFile("2.jpg");
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
 			if (a == 3) {
 				click = click + 3;
-				pictureBox1->Image = System::Drawing::Image::FromFile("1.jpg");
+				pictureBox1->Image = System::Drawing::Image::FromFile("3.jpg");
 				label1->Text = ("Счёт: " + click)->ToString();
 				label1->Refresh();
 			}
-			else {
+			else if (a == 4 || a == 5 || a == 6 || a == 7 || a == 8 || a == 9 || a == 10) {
 				pictureBox1->Image = System::Drawing::Image::FromFile("krest.jpg");
 				MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		a = generate_and_clear();
-		update_score(a);
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
