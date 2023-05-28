@@ -32,67 +32,67 @@ void funk(System::Object^ sender, System::EventArgs^ e, RadioButton^ radioButton
 			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
 			label1->Refresh(); // Обновляем метку
 		}
-		else if (a == 4 || a == 5 || a == 6) { // Если число от 4 до 6
+		if (a == 4 || a == 5 || a == 6) { // Если число от 4 до 6
 			click = click + 2; // Увеличиваем очки на 2
 			pictureBox->Image = System::Drawing::Image::FromFile("2.jpg"); // Показываем картинку с 2
 			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
 			label1->Refresh(); // Обновляем метку
 		}
-		else if (a == 7 || a == 8 || a == 9) { // Если число от 7 до 9
+		if (a == 7 || a == 8 || a == 9) { // Если число от 7 до 9
 			click = click + 3; // Увеличиваем очки на 3
 			pictureBox->Image = System::Drawing::Image::FromFile("3.jpg"); // Показываем картинку с 3
 			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
 			label1->Refresh(); // Обновляем метку
 		}
-		else if (a == 10) { // Если число равно 10
+		if (a == 10) { // Если число равно 10
 			pictureBox->Image = System::Drawing::Image::FromFile("krest.jpg"); // Показываем картинку с крестом
 			MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error); // Выводим сообщение о проигрыше
 		}
 	}
-	else if (radioButton2->Checked) { // Нормальный уровень
+	if (radioButton2->Checked) { // Нормальный уровень
 		if (a == 1 || a == 2) { // Если число от 1 до 2
 			click++; // Увеличиваем очки на 1
 			pictureBox->Image = System::Drawing::Image::FromFile("1.jpg"); // Показываем картинку с 1
 			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
 			label1->Refresh(); // Обновляем метку
 		}
-		else if (a == 3 || a == 4) { // Если число от 3 до 4
+		if (a == 3 || a == 4) { // Если число от 3 до 4
 			click = click + 2; // Увеличиваем очки на 2
 			pictureBox->Image = System::Drawing::Image::FromFile("2.jpg"); // Показываем картинку с 2
 			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
 			label1->Refresh(); // Обновляем метку
 		}
-		else if (a == 5 || a == 6) { // Если число от 5 до 6
+		if (a == 5 || a == 6) { // Если число от 5 до 6
 			click = click + 3; // Увеличиваем очки на 3
 			pictureBox->Image = System::Drawing::Image::FromFile("3.jpg"); // Показываем картинку с 3
 			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
 			label1->Refresh(); // Обновляем метку
 		}
-		else if (a == 7 || a == 8 || a == 9 || a == 10) { // Если число от 7 до10 
+		if (a == 7 || a == 8 || a == 9 || a == 10) { // Если число от 7 до10 
 			pictureBox->Image = System::Drawing::Image::FromFile("krest.jpg"); // Показываем картинку с крестом 
 			MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error); // Выводим сообщение о проигрыше 
 		}
 	}
-	else if (radioButton3->Checked) { // Сложный уровень 
+	if (radioButton3->Checked) { // Сложный уровень 
 		if (a == 1) { // Если число равно 
 			click++;
 			pictureBox->Image = System::Drawing::Image::FromFile("1.jpg");
 			label1->Text = ("Счёт: " + click)->ToString();
 			label1->Refresh();
 		}
-		else if (a == 2) {
+		if (a == 2) {
 			click = click + 2;
 			pictureBox->Image = System::Drawing::Image::FromFile("2.jpg");
 			label1->Text = ("Счёт: " + click)->ToString();
 			label1->Refresh();
 		}
-		else if (a == 3) {
+		if (a == 3) {
 			click = click + 3;
 			pictureBox->Image = System::Drawing::Image::FromFile("3.jpg");
 			label1->Text = ("Счёт: " + click)->ToString();
 			label1->Refresh();
 		}
-		else if (a == 4 || a == 5 || a == 6 || a == 7 || a == 8 || a == 9 || a == 10) {
+		if (a == 4 || a == 5 || a == 6 || a == 7 || a == 8 || a == 9 || a == 10) {
 			pictureBox->Image = System::Drawing::Image::FromFile("krest.jpg");
 			MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
@@ -1775,7 +1775,7 @@ namespace test {
 		}
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		funk();
+		funk(sender, e, radioButton1, radioButton2, radioButton3, label1);
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
