@@ -19,8 +19,84 @@ int generate_and_clear() {
 	}
 }
 
-void qwerty() {
-
+void funk(System::Object^ sender, System::EventArgs^ e, RadioButton^ radioButton1, RadioButton^ radioButton2, RadioButton^ radioButton3, Label^ label1) {
+	int a = generate_and_clear(); // Получаем случайное число
+	int click = 0; // Объявляем переменную для подсчета очков
+	// Получаем указатель на pictureBox, по которому кликнули
+	PictureBox^ pictureBox = (PictureBox^)sender;
+	// Проверяем, какой уровень сложности выбран
+	if (radioButton1->Checked) { // Легкий уровень
+		if (a == 1 || a == 2 || a == 3) { // Если число от 1 до 3
+			click++; // Увеличиваем очки на 1
+			pictureBox->Image = System::Drawing::Image::FromFile("1.jpg"); // Показываем картинку с 1
+			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
+			label1->Refresh(); // Обновляем метку
+		}
+		else if (a == 4 || a == 5 || a == 6) { // Если число от 4 до 6
+			click = click + 2; // Увеличиваем очки на 2
+			pictureBox->Image = System::Drawing::Image::FromFile("2.jpg"); // Показываем картинку с 2
+			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
+			label1->Refresh(); // Обновляем метку
+		}
+		else if (a == 7 || a == 8 || a == 9) { // Если число от 7 до 9
+			click = click + 3; // Увеличиваем очки на 3
+			pictureBox->Image = System::Drawing::Image::FromFile("3.jpg"); // Показываем картинку с 3
+			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
+			label1->Refresh(); // Обновляем метку
+		}
+		else if (a == 10) { // Если число равно 10
+			pictureBox->Image = System::Drawing::Image::FromFile("krest.jpg"); // Показываем картинку с крестом
+			MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error); // Выводим сообщение о проигрыше
+		}
+	}
+	else if (radioButton2->Checked) { // Нормальный уровень
+		if (a == 1 || a == 2) { // Если число от 1 до 2
+			click++; // Увеличиваем очки на 1
+			pictureBox->Image = System::Drawing::Image::FromFile("1.jpg"); // Показываем картинку с 1
+			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
+			label1->Refresh(); // Обновляем метку
+		}
+		else if (a == 3 || a == 4) { // Если число от 3 до 4
+			click = click + 2; // Увеличиваем очки на 2
+			pictureBox->Image = System::Drawing::Image::FromFile("2.jpg"); // Показываем картинку с 2
+			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
+			label1->Refresh(); // Обновляем метку
+		}
+		else if (a == 5 || a == 6) { // Если число от 5 до 6
+			click = click + 3; // Увеличиваем очки на 3
+			pictureBox->Image = System::Drawing::Image::FromFile("3.jpg"); // Показываем картинку с 3
+			label1->Text = ("Счёт: " + click)->ToString(); // Обновляем текст счета
+			label1->Refresh(); // Обновляем метку
+		}
+		else if (a == 7 || a == 8 || a == 9 || a == 10) { // Если число от 7 до10 
+			pictureBox->Image = System::Drawing::Image::FromFile("krest.jpg"); // Показываем картинку с крестом 
+			MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error); // Выводим сообщение о проигрыше 
+		}
+	}
+	else if (radioButton3->Checked) { // Сложный уровень 
+		if (a == 1) { // Если число равно 
+			click++;
+			pictureBox->Image = System::Drawing::Image::FromFile("1.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		else if (a == 2) {
+			click = click + 2;
+			pictureBox->Image = System::Drawing::Image::FromFile("2.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		else if (a == 3) {
+			click = click + 3;
+			pictureBox->Image = System::Drawing::Image::FromFile("3.jpg");
+			label1->Text = ("Счёт: " + click)->ToString();
+			label1->Refresh();
+		}
+		else if (a == 4 || a == 5 || a == 6 || a == 7 || a == 8 || a == 9 || a == 10) {
+			pictureBox->Image = System::Drawing::Image::FromFile("krest.jpg");
+			MessageBox::Show("Вы проиграли", "Game Over", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
 }
 
 namespace test {
@@ -33,6 +109,7 @@ namespace test {
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
+	
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -43,7 +120,6 @@ namespace test {
 			//TODO: добавьте код конструктора
 			//
 		}
-
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -137,10 +213,10 @@ namespace test {
 	private: System::Windows::Forms::PictureBox^ pictureBox79;
 	private: System::Windows::Forms::PictureBox^ pictureBox80;
 	private: System::Windows::Forms::PictureBox^ pictureBox81;
-private: System::Windows::Forms::RadioButton^ radioButton1;
-private: System::Windows::Forms::RadioButton^ radioButton2;
-private: System::Windows::Forms::RadioButton^ radioButton3;
-private: System::Windows::Forms::Button^ button1;
+	public: System::Windows::Forms::RadioButton^ radioButton1;
+	public: System::Windows::Forms::RadioButton^ radioButton2;
+	public: System::Windows::Forms::RadioButton^ radioButton3;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -1699,6 +1775,7 @@ private: System::Windows::Forms::Button^ button1;
 		}
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
