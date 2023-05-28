@@ -19,6 +19,9 @@ int generate_and_clear() {
 	}
 }
 
+void qwerty() {
+
+}
 
 namespace test {
 	using namespace System;
