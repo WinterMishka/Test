@@ -3,10 +3,19 @@
 
 class BD {
 public:
-	OleDbConnection^ database_password() {
+	void database_password(String^ connectionString, OleDbConnection^ connection, OleDbDataAdapter^ adapter) {
 		String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\artyo\\source\\repos\\WinterMishka\\BD.accdb;";
 		OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
-		return connection;
+		OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter("SELECT * FROM [password]", connection);
+		if (connection->State == ConnectionState::Closed) {
+			connection->Open();
+			MessageBox::Show("Соединение с базой данных установлено успешно!");
+			OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter("SELECT * FROM [password]", connection);
+		}
+		else {
+			MessageBox::Show("Не удалось установить соединение с базой данных.");
+		}
+
 	}
 };
 
@@ -109,15 +118,8 @@ namespace WinterMishka {
 #pragma endregion
 	private: System::Void Start_Load(System::Object^ sender, System::EventArgs^ e) {
 		BD bd;
-		OleDbConnection^ connection = bd.database_password();
-		if (connection->State == ConnectionState::Closed) {
-			connection->Open();
-			MessageBox::Show("Соединение с базой данных установлено успешно!");
-			OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter("SELECT * FROM [password]", connection);
-		}
-		else {
-			MessageBox::Show("Не удалось установить соединение с базой данных.");
-		}
+		bd.database_password();
+
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
