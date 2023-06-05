@@ -1,24 +1,19 @@
 #pragma once
 #include "GasStation.h"
 
-
-		String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\artyo\\source\\repos\\WinterMishka\\BD.accdb;";
-		OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+void BD() {
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\artyo\\source\\repos\\WinterMishka\\BD.accdb;";
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter("SELECT * FROM [password]", connection);
+	if (connection->State == ConnectionState::Closed) {
+		connection->Open();
+		MessageBox::Show("Соединение с базой данных установлено успешно!");
 		OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter("SELECT * FROM [password]", connection);
-
-
-			if (connection->State == ConnectionState::Closed) {
-				connection->Open();
-				MessageBox::Show("Соединение с базой данных установлено успешно!");
-				OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter("SELECT * FROM [password]", connection);
-			}
-			else {
-				MessageBox::Show("Не удалось установить соединение с базой данных.");
-			}
-		
-
-
-
+	}
+	else {
+		MessageBox::Show("Не удалось установить соединение с базой данных.");
+	}
+}
 
 namespace WinterMishka {
 
@@ -116,7 +111,7 @@ namespace WinterMishka {
 		}
 #pragma endregion
 	private: System::Void Start_Load(System::Object^ sender, System::EventArgs^ e) {
-
+		BD();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
