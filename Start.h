@@ -110,7 +110,8 @@ namespace WinterMishka {
 	String^ price_AI92;
 	String^ price_AI95;
 	String^ price_AI98;
-	String^ price_DT;
+	public:
+		static String^ price_DT;
 	private: System::Void Start_Load(System::Object^ sender, System::EventArgs^ e) {
 		if (InternetCheckConnection(L"http://www.google.com", FLAG_ICC_FORCE_CONNECTION, 0)) {
 			MessageBox::Show("Интернет успешно подключен!");
@@ -131,6 +132,7 @@ namespace WinterMishka {
 				price_AI95 = dataTable2->Rows[1]->default[2]->ToString();
 				price_AI98 = dataTable2->Rows[2]->default[2]->ToString();
 				price_DT = dataTable2->Rows[3]->default[2]->ToString();
+				connection->Close();
 			}
 			else {
 				MessageBox::Show("Не удалось установить соединение с базой данных.");
@@ -146,8 +148,6 @@ namespace WinterMishka {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		GasStation^ f1 = gcnew GasStation();
-		DT^ f2 = gcnew DT();
-		f2->Value1 = price_DT;
 		f1->Value = value;
 		f1->Owner = this;
 		f1->Show();
